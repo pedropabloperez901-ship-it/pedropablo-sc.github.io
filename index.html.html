@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Pedro Pablo Pérez Rodríguez — S&C Coach, Lic. Cultura Física, Ballet Nacional de Cuba">
+<meta property="og:title" content="Pedro Pablo Pérez Rodríguez — S&C Coach">
+<meta property="og:description" content="Preparación física de élite en la intersección del deporte y las artes escénicas.">
+<meta name="theme-color" content="#0f0f0f">
+<title>Pedro Pablo Pérez Rodríguez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0f0f0f;
+    --white: #f5f5f3;
+    --gray: #8a8a85;
+    --light: #e8e8e4;
+    --card: #1a1a18;
+    --border: rgba(255,255,255,0.1);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --mono: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--mono);
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.5px solid var(--border);
+    background: rgba(15,15,15,0.92);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 200;
+    letter-spacing: 0.15em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .lang-toggle {
+    display: flex;
+    gap: 6px;
+  }
+
+  .lang-btn {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--gray);
+    background: none;
+    border: 0.5px solid rgba(255,255,255,0.2);
+    border-radius: 3px;
+    padding: 3px 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .lang-btn.active {
+    color: var(--white);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  section { padding: 6rem 2.5rem; max-width: 960px; margin: 0 auto; }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 1.25rem;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--gray);
+  }
+
+  .hero-sub {
+    font-size: 13px;
+    color: var(--gray);
+    letter-spacing: 0.08em;
+    margin-bottom: 3rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .hero-sub span::after {
+    content: '·';
+    margin-left: 1rem;
+    color: rgba(255,255,255,0.2);
+  }
+
+  .hero-sub span:last-child::after { content: ''; }
+
+  .hero-bio {
+    font-family: var(--serif);
+    font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--light);
+    max-width: 620px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--black);
+    background: var(--white);
+    border: none;
+    padding: 12px 24px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--white);
+    background: none;
+    border: 0.5px solid rgba(255,255,255,0.3);
+    padding: 12px 24px;
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: var(--white); }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    margin-bottom: 5rem;
+  }
+
+  .stat {
+    background: var(--black);
+    padding: 2rem 1.5rem;
+  }
+
+  .stat-val {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--white);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--border);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 14px;
+    color: var(--light);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-formation {
+    border: 0.5px solid var(--border);
+    padding: 2rem;
+  }
+
+  .formation-item {
+    padding: 1.25rem 0;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .formation-item:last-child { border-bottom: none; }
+
+  .formation-title {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  .formation-inst {
+    font-size: 11px;
+    color: var(--gray);
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+  }
+
+  .service-card {
+    background: var(--black);
+    padding: 2.5rem 2rem;
+    transition: background 0.2s;
+  }
+
+  .service-card:hover { background: var(--card); }
+
+  .service-num {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--gray);
+    margin-bottom: 1.25rem;
+  }
+
+  .service-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .service-desc {
+    font-size: 12px;
+    color: var(--gray);
+    line-height: 1.7;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 2.5rem;
+  }
+
+  .tag {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray);
+    border: 0.5px solid var(--border);
+    padding: 5px 12px;
+  }
+
+  .connect-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .connect-text {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--light);
+    margin-bottom: 2rem;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 0.5px solid var(--border);
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 0.5px solid var(--border);
+    text-decoration: none;
+    color: var(--white);
+    transition: background 0.15s;
+  }
+
+  .social-link:last-child { border-bottom: none; }
+  .social-link:hover { background: var(--card); }
+
+  .social-name {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--white);
+  }
+
+  .social-handle {
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+
+  .social-arrow {
+    font-size: 14px;
+    color: var(--gray);
+  }
+
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    max-width: 100%;
+  }
+
+  .footer-left {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray);
+  }
+
+  .footer-right {
+    font-size: 10px;
+    color: var(--gray);
+    letter-spacing: 0.06em;
+  }
+
+  .divider-line {
+    height: 0.5px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  .es { display: none; }
+  .en { display: block; }
+  .es-i { display: none; }
+  .en-i { display: inline; }
+
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.25rem; }
+    .about-grid, .connect-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    h1 { font-size: 2.6rem; }
+    footer { padding: 1.5rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">PP · S&C</a>
+  <ul class="nav-links">
+    <li><a href="#about"><span class="en-i">About</span><span class="es-i">Sobre mí</span></a></li>
+    <li><a href="#work"><span class="en-i">Work</span><span class="es-i">Trabajo</span></a></li>
+    <li><a href="#connect"><span class="en-i">Connect</span><span class="es-i">Contacto</span></a></li>
+  </ul>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="eyebrow">S&amp;C Coach · Lic. Cultura Física · La Habana</p>
+  <h1>
+    <span class="en">Pedro Pablo<br><em>Pérez Rodríguez</em></span>
+    <span class="es">Pedro Pablo<br><em>Pérez Rodríguez</em></span>
+  </h1>
+  <div class="hero-sub">
+    <span>Lic. Cultura Física</span>
+    
+    <span>Strength &amp; Conditioning</span>
+  </div>
+  <p class="hero-bio en">
+    S&amp;C Coach specializing in injury prevention and physical preparation for athletes and performing artists. Based in Havana.
+  </p>
+  <p class="hero-bio es">
+    S&amp;C Coach especializado en prevención de lesiones y preparación física para atletas y artistas de alto rendimiento. Basado en La Habana.
+  </p>
+  <div class="hero-ctas">
+    <a class="btn-primary" href="#connect">
+      <span class="en-i">Get in touch</span><span class="es-i">Contáctame</span> →
+    </a>
+    <a class="btn-ghost" href="#work">
+      <span class="en-i">My work</span><span class="es-i">Mi trabajo</span>
+    </a>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<section id="about">
+  <p class="section-label en">About</p>
+  <p class="section-label es">Sobre mí</p>
+
+  <div class="stats-grid">
+    <div class="stat">
+      <span class="stat-val">BNC</span>
+      <span class="stat-label"><span class="en-i">Performing arts</span><span class="es-i">Artes escénicas</span></span>
+    </div>
+    <div class="stat">
+      <span class="stat-val">S&amp;C</span>
+      <span class="stat-label">Strength &amp; Conditioning</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val">Lic.</span>
+      <span class="stat-label">Cultura Física · UCCFD</span>
+    </div>
+    <div class="stat">
+      <span class="stat-val">∞</span>
+      <span class="stat-label"><span class="en-i">Competitive swimmer</span><span class="es-i">Nadador competitivo</span></span>
+    </div>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-text">
+      <p class="en">Physical preparation specialist working across sport and performing arts. I apply evidence-based S&amp;C methodology to athletes and dancers who face elite physical demands.</p>
+      <p class="es">Especialista en preparación física que trabaja en el deporte y las artes escénicas. Aplico metodología S&amp;C basada en evidencia a atletas y artistas que exigen un alto rendimiento físico.</p>
+      <p class="en">As a former competitive swimmer and licensed physical culture professional, I bridge both worlds — developing periodization models, injury prevention protocols, and strength &amp; conditioning programs tailored to the unique demands of elite dance.</p>
+      <p class="es">Como ex nadador competitivo y licenciado en Cultura Física, me muevo entre ambos mundos: desarrollando modelos de periodización, protocolos de prevención de lesiones y programas de fuerza y acondicionamiento adaptados a las exigencias únicas de la danza de élite.</p>
+      <div class="tags">
+        <span class="tag">Nordic curl</span>
+        <span class="tag">Biomechanics</span>
+        <span class="tag">Periodization</span>
+        <span class="tag">Dance science</span>
+        <span class="tag">Injury prevention</span>
+        <span class="tag">Load management</span>
+        <span class="tag">Performance</span>
+      </div>
+    </div>
+    <div class="about-formation">
+      <p class="eyebrow" style="margin-bottom:1rem;"><span class="en-i">Formation &amp; Services</span><span class="es-i">Formación y Servicios</span></p>
+      <div class="formation-item">
+        <p class="formation-title">Licenciado en Cultura Física</p>
+        <p class="formation-inst">Universidad de Ciencias de la Cultura Física y el Deporte "Manuel Fajardo" · La Habana, Cuba</p>
+      </div>
+      <div class="formation-item">
+        <p class="formation-title"><span class="en-i">Physical Preparation</span><span class="es-i">Preparación Física</span></p>
+        <p class="formation-inst"><span class="en-i">Individualized training programs oriented toward hypertrophy, performance, and functional work.</span><span class="es-i">Diseño de rutinas individualizadas y aplicación de principios de entrenamiento orientados a la hipertrofia, el rendimiento y el trabajo funcional.</span></p>
+      </div>
+      <div class="formation-item">
+        <p class="formation-title"><span class="en-i">Body Analysis &amp; Anthropometry</span><span class="es-i">Análisis Corporal y Antropométrico</span></p>
+        <p class="formation-inst"><span class="en-i">Body composition assessment and anthropometric evaluation to guide training and nutrition decisions.</span><span class="es-i">Evaluación de la composición corporal y valoración antropométrica para orientar el entrenamiento y la nutrición.</span></p>
+      </div>
+      <div class="formation-item">
+        <p class="formation-title"><span class="en-i">Competitive Swimmer</span><span class="es-i">Nadador Competitivo</span></p>
+        <p class="formation-inst"><span class="en-i">Elite athletic background · Cuba</span><span class="es-i">Antecedente atlético de élite · Cuba</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<section id="work">
+  <p class="section-label en">Work</p>
+  <p class="section-label es">Trabajo</p>
+  <h2 class="en">What I do</h2>
+  <h2 class="es">Lo que hago</h2>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <p class="service-num">01</p>
+      <p class="service-title"><span class="en-i">Physical Preparation</span><span class="es-i">Preparación Física</span></p>
+      <p class="service-desc en">Individualized routine design applying training principles oriented toward hypertrophy, performance, and functional work.</p>
+      <p class="service-desc es">Diseño de rutinas individualizadas y aplicación de principios de entrenamiento orientados a la hipertrofia, el rendimiento y el trabajo funcional.</p>
+    </div>
+    <div class="service-card">
+      <p class="service-num">02</p>
+      <p class="service-title"><span class="en-i">Body &amp; Anthropometric Analysis</span><span class="es-i">Análisis Corporal y Antropométrico</span></p>
+      <p class="service-desc en">Body composition assessment and anthropometric evaluation to guide personalized training and nutrition strategies.</p>
+      <p class="service-desc es">Evaluación de la composición corporal y valoración antropométrica para orientar estrategias de entrenamiento y nutrición personalizadas.</p>
+    </div>
+    <div class="service-card">
+      <p class="service-num">03</p>
+      <p class="service-title"><span class="en-i">S&amp;C Coaching</span><span class="es-i">Entrenamiento S&amp;C</span></p>
+      <p class="service-desc en">Strength and conditioning programs for athletes and performing artists. Evidence-based methodology, individualized approach.</p>
+      <p class="service-desc es">Programas de fuerza y acondicionamiento para atletas y artistas escénicos. Metodología basada en evidencia, enfoque individualizado.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider-line"></div>
+
+<section id="connect">
+  <p class="section-label en">Connect</p>
+  <p class="section-label es">Contacto</p>
+
+  <div class="connect-grid">
+    <div>
+      <h2 class="en">Let's work<br><em>together</em></h2>
+      <h2 class="es">Trabajemos<br><em>juntos</em></h2>
+      <p class="connect-text en">Open to collaborations with dance companies, sports clubs, coaches, and researchers working at the intersection of performance and physical preparation.</p>
+      <p class="connect-text es">Abierto a colaboraciones con compañías de danza, clubes deportivos, entrenadores e investigadores que trabajen en la intersección del rendimiento y la preparación física.</p>
+      <a class="btn-primary" href="mailto:pedropabloperez901@gmail.com">
+        <span class="en-i">Send an email</span><span class="es-i">Enviar email</span> →
+      </a>
+    </div>
+    <div class="social-links">
+      <a class="social-link" href="https://www.instagram.com/_pedri_.3" target="_blank" rel="noopener">
+        <span class="social-name">Instagram</span>
+        <span class="social-handle">@_pedri_.3</span>
+        <span class="social-arrow">↗</span>
+      </a>
+      <a class="social-link" href="https://www.linkedin.com" target="_blank" rel="noopener">
+        <span class="social-name">LinkedIn</span>
+        <span class="social-handle">Pedro Pablo Pérez R.</span>
+        <span class="social-arrow">↗</span>
+      </a>
+      <a class="social-link" href="https://www.tiktok.com" target="_blank" rel="noopener">
+        <span class="social-name">TikTok</span>
+        <span class="social-handle">@_pedri_.3</span>
+        <span class="social-arrow">↗</span>
+      </a>
+      <a class="social-link" href="mailto:pedropabloperez901@gmail.com">
+        <span class="social-name">Email</span>
+        <span class="social-handle">pedropabloperez901@gmail.com</span>
+        <span class="social-arrow">↗</span>
+      </a>
+      <a class="social-link" href="tel:+5354821121">
+        <span class="social-name"><span class="en-i">Phone / WhatsApp</span><span class="es-i">Teléfono / WhatsApp</span></span>
+        <span class="social-handle">+53 5 482 1121</span>
+        <span class="social-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-left">Pedro Pablo Pérez Rodríguez · S&C Coach</p>
+  <p class="footer-right">Lic. Cultura Física · La Habana, Cuba</p>
+</footer>
+
+<script>
+function setLang(l) {
+  document.querySelectorAll('.es').forEach(e => e.style.display = l==='es' ? 'block' : 'none');
+  document.querySelectorAll('.en').forEach(e => e.style.display = l==='en' ? 'block' : 'none');
+  document.querySelectorAll('.es-i').forEach(e => e.style.display = l==='es' ? 'inline' : 'none');
+  document.querySelectorAll('.en-i').forEach(e => e.style.display = l==='en' ? 'inline' : 'none');
+  document.getElementById('btn-es').className = 'lang-btn' + (l==='es' ? ' active' : '');
+  document.getElementById('btn-en').className = 'lang-btn' + (l==='en' ? ' active' : '');
+  document.documentElement.lang = l;
+}
+setLang('es');
+</script>
+</body>
+</html>
